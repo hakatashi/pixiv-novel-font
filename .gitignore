@@ -1,0 +1,5 @@
+# Exclude build files
+fonts
+*.zip
+*.ttf
+*.otf
