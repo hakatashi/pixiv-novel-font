@@ -71,6 +71,11 @@ Select("aj138.pw.vert")
 Import("glyphs/dash-vert.svg", 16 & 2)
 SetVWidth(2048)
 
+# Horizontal dash
+Select(0u2015)
+Import("glyphs/dash.svg", 16 & 2)
+SetWidth(2048)
+
 # Clean
 RemoveDetachedGlyphs()
 
