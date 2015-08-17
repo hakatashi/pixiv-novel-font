@@ -1,9 +1,9 @@
 language: generic
-before_install:
+install:
   - sudo add-apt-repository ppa:fontforge/fontforge -y
   - sudo apt-get update -qq
   - sudo apt-get install fontforge
-install:
+script:
   - make
 notifications:
   webhooks: http://webhook.hakatashi.com/travis
