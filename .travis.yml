@@ -5,3 +5,5 @@ before_install:
   - sudo apt-get install fontforge
 install:
   - make
+notifications:
+  webhooks: http://webhook.hakatashi.com/travis
