@@ -1,0 +1,35 @@
+#!/bin/env fontforge
+
+ipam = "fonts/ipam.ttf"
+output = "pixiv-novel-font.ttf"
+
+copyright = "Copyright(c) Information-technology Promotion Agency, Japan (IPA), 2003-2011. Copyright(c) Koki Takahashi, 1015. You must accept \"http://ipafont.ipa.go.jp/ipa_font_license_v1.html\" to use this product."
+fontname_en = "PixivNovelFont"
+fontname_ja = "PixivNovelFont"
+version = "0.0.0"
+website = "https://github.com/hakatashi/pixiv-novel-font"
+
+Open(ipam)
+
+# Set default font name
+SetFontNames(fontname_en, fontname_en, fontname_en)
+
+# English font information
+SetTTFName(0x409, 0, copyright)
+SetTTFName(0x409, 1, fontname_en)
+SetTTFName(0x409, 3, fontname_en + " " + version)
+SetTTFName(0x409, 4, fontname_en)
+SetTTFName(0x409, 5, version)
+SetTTFName(0x409, 13, website)
+SetTTFName(0x409, 14, website)
+
+# Japanese font information
+SetTTFName(0x409, 0, copyright)
+SetTTFName(0x409, 1, fontname_ja)
+SetTTFName(0x409, 3, fontname_en + " " + version)
+SetTTFName(0x409, 4, fontname_ja)
+SetTTFName(0x409, 5, version)
+SetTTFName(0x409, 13, website)
+SetTTFName(0x409, 14, website)
+
+Generate(output)

@@ -1,7 +1,7 @@
-all: pixiv-novel-font.otf
+all: pixiv-novel-font.ttf
 
-pixiv-novel-font.otf: fonts/ipam.ttf
-	echo 'hogehoge' > pixiv-novel-font.otf
+pixiv-novel-font.ttf: fonts/ipam.ttf build.pe
+	fontforge build.pe
 
 fonts/ipam.ttf: IPAfont00303.zip
 	mkdir -p fonts
