@@ -42,6 +42,9 @@ SetTTFName(0x411, 5, version)
 SetTTFName(0x411, 13, website)
 SetTTFName(0x411, 14, website)
 
+# Merge IPAMinchoP
+##################
+
 # Select Japanese characters
 SelectMore(0u3000, 0u30ff) # CJK Symbols, Hiragana and Katakana
 SelectMore(0u3200, 0u9fff) # CJK Ideographs
@@ -58,7 +61,15 @@ DetachAndRemoveGlyphs()
 # Merge ipamp font
 MergeFonts(ipamp)
 
-# Reform
+# Replace Glyphs
+################
+
+# Vertical dash
+Select("aj138.pw.vert")
+Import("glyphs/dash-vert.svg", 16 & 2)
+SetVWidth(2048)
+
+# Clean
 RemoveDetachedGlyphs()
 
 Generate(output)
