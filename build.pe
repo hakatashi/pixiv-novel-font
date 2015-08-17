@@ -51,6 +51,8 @@ SelectMore(0u3200, 0u9fff) # CJK Ideographs
 SelectMore(0uf900, 0ufaff) # CJK Compatibility Ideographs
 SelectMore(0ufe30, 0ufe4f) # CJK Compatibility Forms
 SelectMore(0u20000, 0u2ffff) # CJK Ideographs Ext-B and more
+# Exclude Space, for MergeFonts() doesn't import empty glyph from another font
+SelectMore(0u20)
 
 # Invert selection
 SelectInvert()
