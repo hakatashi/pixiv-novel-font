@@ -63,8 +63,8 @@ DetachAndRemoveGlyphs()
 # Merge ipamp font
 MergeFonts(ipamp)
 
-# Replace Glyphs
-################
+# Glyph Modification
+####################
 
 # Vertical dash
 Select("aj138.pw.vert")
@@ -75,6 +75,10 @@ SetVWidth(2048)
 Select(0u2015)
 Import("glyphs/dash.svg", 16 & 2)
 SetWidth(2048)
+
+# Space
+Select(0u20)
+SetWidth(512)
 
 # Clean
 RemoveDetachedGlyphs()
