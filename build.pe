@@ -78,7 +78,7 @@ SetWidth(2048)
 
 # Space
 Select(0u20)
-SetWidth(512)
+SetWidth(512) # 1 / 4 em
 
 # Clean
 RemoveDetachedGlyphs()
