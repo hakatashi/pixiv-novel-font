@@ -1,5 +1,6 @@
 # Exclude build files
-fonts
+/fonts
+/pixiv-novel-font
 *.zip
 *.ttf
 *.otf
