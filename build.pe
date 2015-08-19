@@ -10,7 +10,7 @@ fontname_ja = "PixivNovelFont"
 version = "0.0.0"
 website = "https://github.com/hakatashi/pixiv-novel-font"
 
-Open(ipam)
+Open(ipam, 0x4)
 
 # Set default font name
 SetFontNames(fontname_en, fontname_en, fontname_en)
@@ -51,8 +51,10 @@ SelectMore(0u3200, 0u9fff) # CJK Ideographs
 SelectMore(0uf900, 0ufaff) # CJK Compatibility Ideographs
 SelectMore(0ufe30, 0ufe4f) # CJK Compatibility Forms
 SelectMore(0u20000, 0u2ffff) # CJK Ideographs Ext-B and more
-# Exclude Space, for MergeFonts() doesn't import empty glyph from another font
-SelectMore(0u20)
+# Exclude some glyphs, because reference of glyphs are not imported by MergeFonts(). To be fixed.
+SelectMore(0u20) # Space
+SelectMore(0u2d) # Hyphen-minus
+SelectMore(0u60) # Grave Accent
 
 # Invert selection
 SelectInvert()
