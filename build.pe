@@ -74,9 +74,13 @@ Import("glyphs/dash-vert.svg", 16 & 2)
 SetVWidth(2048)
 
 # Horizontal dash
+# Create on U+2015 and link there from U+2014
 Select(0u2015)
 Import("glyphs/dash.svg", 16 & 2)
 SetWidth(2048)
+CopyReference()
+Select(0u2014)
+Paste()
 
 # Space
 Select(0u20)
