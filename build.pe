@@ -55,6 +55,7 @@ SelectMore(0u20000, 0u2ffff) # CJK Ideographs Ext-B and more
 SelectMore(0u20) # Space
 SelectMore(0u2d) # Hyphen-minus
 SelectMore(0u60) # Grave Accent
+SelectMore(0uff5e) # FULLWIDTH TILDE
 
 # Invert selection
 SelectInvert()
