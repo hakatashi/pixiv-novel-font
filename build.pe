@@ -97,6 +97,7 @@ SetWidth(512) # 1 / 4 em
 # Refer https://github.com/hakatashi/pixiv-novel-font/issues/2
 Select(0uff08)
 RemovePosSub('*')
+GetPosSub('*')
 AddPosSub(vertSubtableP, 'aj7899')
 
 # Clean
