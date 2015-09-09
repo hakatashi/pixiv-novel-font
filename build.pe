@@ -10,6 +10,12 @@ fontname_ja = "PixivNovelFont"
 version = "0.0.0"
 website = "https://github.com/hakatashi/pixiv-novel-font"
 
+vertSubtable = "'vert' 縦書き字形【廃止】 lookup 0 サブテーブル"
+vertSubtableP = "IPAPMincho-'vert' 縦書き字形【廃止】 lookup 0 サブテーブル"
+
+ccmpSubtable = "'ccmp' グリフ合成/分解 lookup 1 サブテーブル"
+ccmpSubtableP = "IPAPMincho-'ccmp' グリフ合成/分解 lookup 1 サブテーブル"
+
 Open(ipam, 0x4)
 
 # Set default font name
@@ -86,6 +92,12 @@ Paste()
 # Space
 Select(0u20)
 SetWidth(512) # 1 / 4 em
+
+# Map U+FF08 to aj7899 on vertical, not aj674.pw.vert
+# Refer https://github.com/hakatashi/pixiv-novel-font/issues/2
+Select(0uff08)
+RemovePosSub('*')
+AddPosSub(vertSubtableP, 'aj7899')
 
 # Clean
 RemoveDetachedGlyphs()
