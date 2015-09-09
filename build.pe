@@ -50,6 +50,7 @@ SelectMore(0u3000, 0u30ff) # CJK Symbols, Hiragana and Katakana
 SelectMore(0u3200, 0u9fff) # CJK Ideographs
 SelectMore(0uf900, 0ufaff) # CJK Compatibility Ideographs
 SelectMore(0ufe30, 0ufe4f) # CJK Compatibility Forms
+SelectMore(0uff00, 0uffef) # Halfwidth and Fullwidth Forms
 SelectMore(0u20000, 0u2ffff) # CJK Ideographs Ext-B and more
 # Exclude some glyphs, because reference of glyphs are not imported by MergeFonts(). To be fixed.
 SelectMore(0u20) # Space
@@ -69,25 +70,6 @@ MergeFonts(ipamp)
 # Glyph Modification
 ####################
 
-# Get required lookup subtables
-
-lookups = GetLookups('GSUB')
-
-Print('Available Lookups:')
-Print(lookups)
-
-vertSubtable = GetLookupSubtables(lookups[0])[0]
-vertSubtableP = GetLookupSubtables(lookups[2])[0]
-
-ccmpSubtable = GetLookupSubtables(lookups[1])[0]
-ccmpSubtableP = GetLookupSubtables(lookups[3])[0]
-
-Print('Using "vert" subtable of IPAMincho: ' + vertSubtable)
-Print('Using "vert" subtable of IPAPMincho: ' + vertSubtableP)
-
-Print('Using "ccmp" subtable of IPAMincho: ' + ccmpSubtable)
-Print('Using "ccmp" subtable of IPAPMincho: ' + ccmpSubtableP)
-
 # Vertical dash
 Select("aj138.pw.vert")
 Import("glyphs/dash-vert.svg", 16 & 2)
@@ -105,12 +87,6 @@ Paste()
 # Space
 Select(0u20)
 SetWidth(512) # 1 / 4 em
-
-# Map U+FF08 to aj7899 on vertical, not aj674.pw.vert
-# Refer https://github.com/hakatashi/pixiv-novel-font/issues/2
-Select(0uff08)
-RemovePosSub('*')
-AddPosSub(vertSubtableP, 'aj7899')
 
 # Clean
 RemoveDetachedGlyphs()
