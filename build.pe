@@ -10,12 +10,6 @@ fontname_ja = "PixivNovelFont"
 version = "0.0.0"
 website = "https://github.com/hakatashi/pixiv-novel-font"
 
-vertSubtable = "'vert' 縦書き字形【廃止】 lookup 0 サブテーブル"
-vertSubtableP = "IPAPMincho-'vert' 縦書き字形【廃止】 lookup 0 サブテーブル"
-
-ccmpSubtable = "'ccmp' グリフ合成/分解 lookup 1 サブテーブル"
-ccmpSubtableP = "IPAPMincho-'ccmp' グリフ合成/分解 lookup 1 サブテーブル"
-
 Open(ipam, 0x4)
 
 # Set default font name
@@ -75,6 +69,25 @@ MergeFonts(ipamp)
 # Glyph Modification
 ####################
 
+# Get required lookup subtables
+
+lookups = GetLookups('GSUB')
+
+Print('Available Lookups:')
+Print(lookups)
+
+vertSubtable = GetLookupSubtables(lookups[0])[0]
+vertSubtableP = GetLookupSubtables(lookups[2])[0]
+
+ccmpSubtable = GetLookupSubtables(lookups[1])[0]
+ccmpSubtableP = GetLookupSubtables(lookups[3])[0]
+
+Print('Using "vert" subtable of IPAMincho: ' + vertSubtable)
+Print('Using "vert" subtable of IPAPMincho: ' + vertSubtableP)
+
+Print('Using "ccmp" subtable of IPAMincho: ' + ccmpSubtable)
+Print('Using "ccmp" subtable of IPAPMincho: ' + ccmpSubtableP)
+
 # Vertical dash
 Select("aj138.pw.vert")
 Import("glyphs/dash-vert.svg", 16 & 2)
@@ -96,8 +109,6 @@ SetWidth(512) # 1 / 4 em
 # Map U+FF08 to aj7899 on vertical, not aj674.pw.vert
 # Refer https://github.com/hakatashi/pixiv-novel-font/issues/2
 Select(0uff08)
-Print('Available Subtables:')
-Print(GetPosSub('*'))
 RemovePosSub('*')
 AddPosSub(vertSubtableP, 'aj7899')
 
