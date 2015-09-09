@@ -96,9 +96,9 @@ SetWidth(512) # 1 / 4 em
 # Map U+FF08 to aj7899 on vertical, not aj674.pw.vert
 # Refer https://github.com/hakatashi/pixiv-novel-font/issues/2
 Select(0uff08)
-RemovePosSub('*')
 Print('Available Subtables:')
 Print(GetPosSub('*'))
+RemovePosSub('*')
 AddPosSub(vertSubtableP, 'aj7899')
 
 # Clean
